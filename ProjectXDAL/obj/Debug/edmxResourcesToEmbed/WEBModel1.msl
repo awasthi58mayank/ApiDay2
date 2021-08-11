@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ABCModelStoreContainer" CdmEntityContainer="ProjectDataEntities">
+    <EntitySetMapping Name="Batches">
+      <EntityTypeMapping TypeName="ABCModel.Batch">
+        <MappingFragment StoreEntitySet="Batch">
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="BatchName" ColumnName="BatchName" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="StudentCount" ColumnName="StudentCount" />
+          <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BatchCourseFacultyMappings">
+      <EntityTypeMapping TypeName="ABCModel.BatchCourseFacultyMapping">
+        <MappingFragment StoreEntitySet="BatchCourseFacultyMapping">
+          <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="FacultyId" ColumnName="FacultyId" />
+          <ScalarProperty Name="BCFId" ColumnName="BCFId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="ABCModel.Cours">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
+          <ScalarProperty Name="CourseDuration" ColumnName="CourseDuration" />
+          <ScalarProperty Name="CourseMode" ColumnName="CourseMode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryModels">
+      <EntityTypeMapping TypeName="ABCModel.DeliveryModel">
+        <MappingFragment StoreEntitySet="DeliveryModel">
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="ABCModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Graders">
+      <EntityTypeMapping TypeName="ABCModel.Grader">
+        <MappingFragment StoreEntitySet="Grader">
+          <ScalarProperty Name="BCFId" ColumnName="BCFId" />
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="GId" ColumnName="GId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participants">
+      <EntityTypeMapping TypeName="ABCModel.Participant">
+        <MappingFragment StoreEntitySet="Participants">
+          <ScalarProperty Name="PSNo" ColumnName="PSNo" />
+          <ScalarProperty Name="ParticipantsName" ColumnName="ParticipantsName" />
+          <ScalarProperty Name="ParticipantsEmail" ColumnName="ParticipantsEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacultyCourseMappings">
+      <EntityTypeMapping TypeName="ABCModel.FacultyCourseMapping">
+        <MappingFragment StoreEntitySet="FacultyCourseMapping">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="PrimaryFaculty" ColumnName="PrimaryFaculty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CourseModelMapping" TypeName="ABCModel.CourseModelMapping" StoreEntitySet="CourseModelMapping">
+      <EndProperty Name="Courses">
+        <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+      </EndProperty>
+      <EndProperty Name="DeliveryModel">
+        <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ParticipantsBatchMapping" TypeName="ABCModel.ParticipantsBatchMapping" StoreEntitySet="ParticipantsBatchMapping">
+      <EndProperty Name="Batch">
+        <ScalarProperty Name="BatchId" ColumnName="BatchId" />
+      </EndProperty>
+      <EndProperty Name="Participants">
+        <ScalarProperty Name="PSNo" ColumnName="PSNO" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionName="ABCModel.Store.ufnBottomFiveScoreByCId" FunctionImportName="ufnBottomFiveScoreByCId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ABCModel.ufnBottomFiveScoreByCId_Result">
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ABCModel.Store.ufnGetCourseScoreByFId" FunctionImportName="ufnGetCourseScoreByFId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ABCModel.ufnGetCourseScoreByFId_Result">
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ABCModel.Store.ufnGetFacultyByCId" FunctionImportName="ufnGetFacultyByCId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ABCModel.ufnGetFacultyByCId_Result">
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="PrimaryFaculty" ColumnName="PrimaryFaculty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ABCModel.Store.ufnGetParticipantsByCId" FunctionImportName="ufnGetParticipantsByCId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ABCModel.ufnGetParticipantsByCId_Result">
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ABCModel.Store.ufnTopFiveScoreByCId" FunctionImportName="ufnTopFiveScoreByCId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ABCModel.ufnTopFiveScoreByCId_Result">
+          <ScalarProperty Name="PSNO" ColumnName="PSNO" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspAddCourses" FunctionName="ABCModel.Store.uspAddCourses" />
+    <FunctionImportMapping FunctionImportName="uspBatchCourseFacultyMapping" FunctionName="ABCModel.Store.uspBatchCourseFacultyMapping" />
+    <FunctionImportMapping FunctionImportName="uspBatchInput" FunctionName="ABCModel.Store.uspBatchInput" />
+    <FunctionImportMapping FunctionImportName="uspDeleteCourse" FunctionName="ABCModel.Store.uspDeleteCourse" />
+    <FunctionImportMapping FunctionImportName="uspDeleteFaculty" FunctionName="ABCModel.Store.uspDeleteFaculty" />
+    <FunctionImportMapping FunctionImportName="uspFacultyAdd" FunctionName="ABCModel.Store.uspFacultyAdd" />
+    <FunctionImportMapping FunctionImportName="uspGraderInput" FunctionName="ABCModel.Store.uspGraderInput" />
+    <FunctionImportMapping FunctionImportName="uspMapCourseModel" FunctionName="ABCModel.Store.uspMapCourseModel" />
+    <FunctionImportMapping FunctionImportName="uspMapDelivaryModel" FunctionName="ABCModel.Store.uspMapDelivaryModel" />
+    <FunctionImportMapping FunctionImportName="uspMapFacultyCourse" FunctionName="ABCModel.Store.uspMapFacultyCourse" />
+    <FunctionImportMapping FunctionImportName="uspParticipantsInput" FunctionName="ABCModel.Store.uspParticipantsInput" />
+    <FunctionImportMapping FunctionImportName="uspPBMappingInput" FunctionName="ABCModel.Store.uspPBMappingInput" />
+    <FunctionImportMapping FunctionImportName="uspUpdateCourse" FunctionName="ABCModel.Store.uspUpdateCourse" />
+    <FunctionImportMapping FunctionImportName="uspUpdateFaculties" FunctionName="ABCModel.Store.uspUpdateFaculties" />
+  </EntityContainerMapping>
+</Mapping>

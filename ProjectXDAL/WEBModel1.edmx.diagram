@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31fe594d2ea84c1d97d426c5a2221b68" Name="Diagram1">
+        <EntityTypeShape EntityType="ABCModel.Batch" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.BatchCourseFacultyMapping" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.Cours" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.DeliveryModel" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.Faculty" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.Grader" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.Participant" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABCModel.FacultyCourseMapping" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="ABCModel.FK_Batch_BatchCourseFacultyMapping" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK_Batch_DeliveryModel" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK_Course_BatchCourseFacultyMapping" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK_Faculty_BatchCourseFacultyMapping" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK_Grader_BatchCourseFacultyMapping" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK__FacultyCo__Cours__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK__FacultyCou__PSNO__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.FK__Grader__PSNO__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.CourseModelMapping" ManuallyRouted="false" />
+        <AssociationConnector Association="ABCModel.ParticipantsBatchMapping" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
